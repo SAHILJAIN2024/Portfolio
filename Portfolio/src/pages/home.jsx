@@ -223,6 +223,7 @@ function Lang({ name, percent }) {
   )
 }
 
+
 function ContributionGrid() {
   const grid = [
     [1,0,0,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,0,1,1,1],
@@ -234,36 +235,50 @@ function ContributionGrid() {
 
   return (
     <div className="space-y-4">
-      <h3 className="text-center text-lg font-semibold tracking-wide">
-  Contributions
-</h3>
 
+      {/* Title */}
+      <h3 className="text-center text-base sm:text-lg font-semibold tracking-wide">
+        Contributions
+      </h3>
 
+      {/* Grid Wrapper */}
       <div className="flex justify-center overflow-x-auto">
-        <div className="grid gap-1">
-          {grid.map((row, i) => (
-            <div key={i} className="flex gap-1">
-              {row.map((cell, j) => (
-                <div
-                  key={j}
-                  className={`w-6 h-6 rounded-sm ${
-                    cell
-                      ? "bg-green-500"
-                      : "bg-[#161b22] border border-[#30363d]"
-                  }`}
-                />
-              ))}
-            </div>
-          ))}
+        <div className="inline-block">
+          <div className="grid gap-[3px]">
+            {grid.map((row, i) => (
+              <div key={i} className="flex gap-[3px]">
+                {row.map((cell, j) => (
+                  <div
+                    key={j}
+                    className={`
+                      rounded-sm
+                      transition
+                      ${
+                        cell
+                          ? "bg-green-500"
+                          : "bg-[#161b22] border border-[#30363d]"
+                      }
+                      w-3 h-3
+                      sm:w-4 sm:h-4
+                      md:w-5 md:h-5
+                      lg:w-6 lg:h-6
+                    `}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      <p className="text-center text-sm text-[#8b949e]">
+      {/* Caption */}
+      <p className="text-center text-xs sm:text-sm text-[#8b949e]">
         Consistency over intensity 🚀
       </p>
     </div>
   )
 }
+
 
 function PieChart() {
   const radius = 14
