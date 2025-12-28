@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom"
+import { Routes, Route, Link, useLocation } from "react-router-dom"
 import { useState } from "react"
 import {
   FaUser,
@@ -9,7 +9,7 @@ import {
   FaBars,
   FaTimes
 } from "react-icons/fa"
-
+import {AnimatePresence, motion} from "framer-motion"
 import Skills from "../src/pages/skills"
 import Home from "../src/pages/home"
 import Projects from "../src/pages/projects"
@@ -17,6 +17,7 @@ import Achievements from "../src/pages/achievements"
 
 export default function App() {
   const [open, setOpen] = useState(false)
+  const location = useLocation()
 
   return (
     <div className="min-h-screen bg-[#0d1117] text-[#c9d1d9] font-mono">
@@ -27,9 +28,9 @@ export default function App() {
 
           <Link
             to="/"
-            className="text-xl sm:text-2xl font-semibold flex items-center gap-2 hover:text-[#58a6ff]"
+            className="text-xl sm:text-2xl font-semibold flex items-center gap-2 hover:text-[#f8a02e]"
           >
-            <FaUser />
+          
             Sahil Jain
           </Link>
 
@@ -70,15 +71,28 @@ export default function App() {
       </header>
 
       {/* ================= ROUTES ================= */}
-      <main className="px-2 sm:px-0">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/achievements" element={<Achievements />} />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Page><Home /></Page>} />
+          <Route path="/projects" element={<Page><Projects /></Page>} />
+          <Route path="/skills" element={<Page><Skills /></Page>} />
+          <Route path="/achievements" element={<Page><Achievements /></Page>} />
         </Routes>
-      </main>
+      </AnimatePresence>
     </div>
+  )
+}
+
+function Page({ children }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+    >
+      {children}
+    </motion.div>
   )
 }
 
@@ -91,7 +105,7 @@ function Nav({ to, icon, children, onClick }) {
         flex items-center gap-3
         px-3 py-2 rounded-md
         hover:bg-[#161b22]
-        hover:text-[#58a6ff]
+        hover:text-[#f8a02e]
         transition
       "
     >

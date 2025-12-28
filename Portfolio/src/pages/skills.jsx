@@ -82,7 +82,6 @@ export default function Skills() {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
               {[
                 { name: "Solidity", icon: "solidity", level: 85 },
-                { name: "Ethereum", icon: "ethereum", level: 80 },
                 { name: "ERC-20 / ERC-1155", icon: "ethereum", level: 90 },
                 { name: "IPFS", icon: "ipfs", level: 87 },
                 { name: "The Graph", icon: "graphql", level: 90 },

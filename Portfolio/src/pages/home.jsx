@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
+import { motion } from "framer-motion"
 
 const reposData = [
   {
@@ -39,17 +40,17 @@ export default function Home() {
 
   <a
     href="mailto:jainsahil022@gmail.com"
-    className="flex items-center gap-2 text-sm text-[#c9d1d9] hover:text-[#58a6ff] transition"
+    className="flex items-center gap-2 text-sm text-[#c9d1d9] hover:text-[#f8a02e] transition"
   >
     📧
     <span className="break-all">jainsahil022@gmail.com</span>
   </a>
 
   <a
-    href="https://www.linkedin.com/in/sahil-jain-2024"
+    href="https://www.linkedin.com/in/sahil-jain-610907211/"
     target="_blank"
     rel="noopener noreferrer"
-    className="flex items-center gap-2 text-sm text-[#c9d1d9] hover:text-[#58a6ff] transition"
+    className="flex items-center gap-2 text-sm text-[#c9d1d9] hover:text-[#f8a02e] transition"
   >
     🔗 LinkedIn
   </a>
@@ -58,7 +59,7 @@ export default function Home() {
     href="https://github.com/SAHILJAIN2024"
     target="_blank"
     rel="noopener noreferrer"
-    className="flex items-center gap-2 text-sm text-[#c9d1d9] hover:text-[#58a6ff] transition"
+    className="flex items-center gap-2 text-sm text-[#c9d1d9] hover:text-[#f8a02e] transition"
   >
     💻 GitHub
   </a>
@@ -71,7 +72,7 @@ export default function Home() {
       w-full rounded-md border border-[#30363d]
       py-2 text-sm font-medium
       text-[#c9d1d9]
-      hover:bg-[#21262d] hover:border-[#58a6ff]
+      hover:bg-[#21262d] hover:border-[#f8a02e]
       transition
     "
   >
@@ -351,5 +352,4 @@ function Legend({ color, label }) {
     </div>
   )
 }
-
 
